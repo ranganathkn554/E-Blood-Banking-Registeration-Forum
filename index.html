@@ -42,7 +42,7 @@
                 <label for="age">Age</label>
                 <input type="number" id="age" name="age" placeholder="Enter your age" required>
 
-                <label>Are you eligible for donation?</label>
+                <label>Will You Agree to donate your blood?</label>
                 <div class="radio-group">
                     <input type="radio" id="eligibleYes" name="donationEligibility" value="Yes" required>
                     <label for="eligibleYes">Yes</label>
@@ -51,9 +51,17 @@
                 </div>
             </fieldset>
 
-            <button type="submit" class="btn">Register</button>
+            <button type="submit" class="btn">Submit</button>
         </form>
+        
+        <!-- Acknowledgment Copy Section -->
+        <div id="acknowledgment" style="display: none; margin-top: 20px; border: 1px solid #ddd; padding: 20px;">
+            <h2>Acknowledgment Copy</h2>
+            <div id="userDetails"></div>
+            <button id="downloadPdf" class="btn">Download PDF</button>
+        </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
