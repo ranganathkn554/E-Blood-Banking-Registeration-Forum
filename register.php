@@ -5,76 +5,144 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Form - E-Blood Banking System</title>
     <style>
+        <style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, rgb(163, 143, 143), #f06); /* Gradient background */
+        margin: 0;
+        padding: 0;
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .form-container {
+        max-width: 600px;
+        margin: 50px auto;
+        background: linear-gradient(135deg, #fff, #f9f9f9);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+        text-align: center;
+        color: #f06;
+        font-size: 2rem;
+    }
+
+    fieldset {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        padding: 15px;
+    }
+
+    legend {
+        font-size: 1.4rem;
+        color: #505ca1;
+        padding: 0 10px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        color: #555;
+        font-weight: bold;
+    }
+
+    input, select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #505ca1;
+        border-radius: 5px;
+        font-size: 1rem;
+    }
+
+    input:focus, select:focus {
+        outline: none;
+        border-color: #f06;
+        box-shadow: 0 0 8px rgba(240, 6, 0, 0.6);
+    }
+
+    .radio-group {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .radio-group input[type="radio"] {
+        margin-right: 8px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 10px;
+        background: linear-gradient(135deg, #f06, #ff7f50);
+        border: none;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+        background: linear-gradient(135deg, #09e01b, #5cb85c);
+        transform: scale(1.05);
+    }
+
+    .error {
+        color: red;
+        font-size: 0.9rem;
+    }
+
+    .success-message {
+        display: none;
+        text-align: center;
+        padding: 20px;
+        background: linear-gradient(135deg, #dff0d8, #c8e5bc);
+        border-radius: 8px;
+        color: #3c763d;
+    }
+
+    .success-message button {
+        background-color: #5cb85c;
+        border: none;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .success-message button:hover {
+        background-color: #4cae4c;
+    }
+
+    @media (max-width: 600px) {
         body {
-            font-family: Arial, sans-serif;
-            background-color: #d534f; /* Red background */
-            margin: 0;
-            padding: 0;
+            padding: 15px;
         }
+
         .form-container {
-            max-width: 600px;
-            margin: 50px auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 15px;
         }
+
         h1 {
-            text-align: center;
-            color: #333;
+            font-size: 1.8rem;
         }
-        fieldset {
-            border: none;
-            margin-bottom: 20px;
-        }
-        legend {
-            font-size: 1.2em;
-            color: #444;
-            margin-bottom: 10px;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: #555;
-        }
-        input, select {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .radio-group {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
+
         .btn {
-            width: 100%;
-            padding: 10px;
-            background-color: #5cb85c;
-            border: none;
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1em;
+            font-size: 1rem;
         }
-        .btn:hover {
-            background-color: #09e01b;
-        }
-        .error {
-            color: red;
-        }
-        .success-message {
-            display: none;
-            text-align: center;
-        }
-        .success-message button {
-            background-color: #5cb85c;
-            border-radius: 5px;
-            padding: 10px;
-            cursor: pointer;
-        }
+    }
+</style>
+
     </style>
 </head>
 <body>
@@ -185,7 +253,7 @@
             var phonePattern = /^[0-9]{10}$/;
 
             // Validate age
-            if (age < 18 && <60) {
+            if (age < 18) {
                 alert("You must be 18 years or older to register.");
                 return false;
             }
