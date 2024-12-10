@@ -269,5 +269,21 @@
     </script>
 </body>
 </html>
-<!-- http://localhost:8080/register.php -->
+<!-- http://localhost:8080/register.php 
+
+CREATE DATABASE IF NOT EXISTS ebloodforum;
+
+USE ebloodforum;
+
+CREATE TABLE IF NOT EXISTS registrations (
+    id INT AUTO_INCREMENT PRIMARY KEY, -- Unique identifier for each registration
+    full_name VARCHAR(100) NOT NULL,   -- Full name of the registrant
+    email VARCHAR(100) NOT NULL UNIQUE, -- Email address (unique to prevent duplicate registrations)
+    phone VARCHAR(15) NOT NULL,        -- Phone number
+    blood_group ENUM('A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-') NOT NULL, -- Blood group options
+    age INT NOT NULL CHECK (age >= 18), -- Age (with a minimum requirement of 18 years)
+    donation_eligibility ENUM('Yes', 'No') NOT NULL, -- Donation eligibility status
+    registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP -- Timestamp of registration
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+-->
 <!-- http://localhost:8080/phpmyadmin/index.php?route=/sql&pos=0&db=ebloodforum&table=registrations --> 
