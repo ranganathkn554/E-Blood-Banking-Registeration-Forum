@@ -8,7 +8,7 @@
         <style>
     body {
         font-family: Arial, sans-serif;
-        background: linear-gradient(135deg, rgb(163, 143, 143), #f06); /* Gradient background */
+        background: linear-gradient(135deg, rgb(163, 143, 143), #f06); 
         margin: 0;
         padding: 0;
         color: #333;
@@ -21,7 +21,7 @@
     .form-container {
         max-width: 600px;
         margin: 50px auto;
-        background: linear-gradient(135deg, #fff, #f9f9f9);
+        background: aquamarine;
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -147,21 +147,21 @@
 </head>
 <body>
     <?php
-    // Database connection
+  
     $host = "localhost";
-    $username = "root"; // Replace with your database username
-    $password = ""; // Replace with your database password
+    $username = "root"; 
+    $password = ""; 
     $dbname = "ebloodforum";
 
-    // Create connection
+    
     $conn = new mysqli($host, $username, $password, $dbname);
 
-    // Check connection
+    
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Handle form submission
+    
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $fullName = $conn->real_escape_string($_POST['fullName']);
         $email = $conn->real_escape_string($_POST['email']);
@@ -170,7 +170,7 @@
         $age = (int)$_POST['age'];
         $donationEligibility = $conn->real_escape_string($_POST['donationEligibility']);
 
-        // Insert data into the database
+      
         $sql = "INSERT INTO registrations (full_name, email, phone, blood_group, age, donation_eligibility)
                 VALUES ('$fullName', '$email', '$phone', '$bloodGroup', $age, '$donationEligibility')";
 
@@ -188,11 +188,11 @@
     $conn->close();
     ?>
 
-    <!-- Registration Form -->
+   
     <div class="form-container" id="registrationForm">
         <h1>E-Blood Banking System Registration</h1>
         <form method="POST" onsubmit="return validateForm()">
-            <!-- Personal Details -->
+            
             <fieldset>
                 <legend>Personal Details</legend>
                 <label for="fullName">Full Name</label>
@@ -205,7 +205,7 @@
                 <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
             </fieldset>
         
-            <!-- Medical Details -->
+        
             <fieldset>
                 <legend>Medical Details</legend>
                 <label for="bloodGroup">Blood Group</label>
@@ -237,7 +237,7 @@
         </form>
     </div>
 
-    <!-- Success Message -->
+    
     <div class="success-message" id="successMessage">
         <h1>Registration Successful!</h1>
         <div id="userDetails"></div>
@@ -246,19 +246,19 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        // Form Validation for Age and Phone Number
+       
         function validateForm() {
             var age = document.getElementById("age").value;
             var phone = document.getElementById("phone").value;
             var phonePattern = /^[0-9]{10}$/;
 
-            // Validate age
+           
             if (age < 18) {
                 alert("You must be 18 years or older to register.");
                 return false;
             }
 
-            // Validate phone number (10 digits)
+           
             if (!phonePattern.test(phone)) {
                 alert("Phone number must be 10 digits.");
                 return false;
@@ -269,6 +269,8 @@
     </script>
 </body>
 </html>
+<!-- http://localhost:8080/register.php -->
+<!-- http://localhost:8080/phpmyadmin/index.php?route=/sql&pos=0&db=ebloodforum&table=registrations --> 
 <!-- http://localhost:8080/register.php 
 
 CREATE DATABASE IF NOT EXISTS ebloodforum;
