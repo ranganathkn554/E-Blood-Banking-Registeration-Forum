@@ -271,8 +271,7 @@
 </html>
 <!-- http://localhost:8080/register.php -->
 <!-- http://localhost:8080/phpmyadmin/index.php?route=/sql&pos=0&db=ebloodforum&table=registrations --> 
-<!-- http://localhost:8080/register.php 
-
+<!--  
 CREATE DATABASE IF NOT EXISTS ebloodforum;
 
 USE ebloodforum;
